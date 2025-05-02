@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="description" content="Museum Entry Discount, with PHP" />
+  <meta name="description" content="Triangle Classification, in PHP" />
   <meta name="keywords" content="mths, icd2o" />
   <meta name="author" content="Olivia TD" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,7 +30,7 @@
     sizes="16x16"
     href="./favicon-16x16.png" />
   <link rel="manifest" href="./site.webmanifest" />
-  <title>Museum Entry Discount, with PHP</title>
+  <title>Triangle Classification, in PHP</title>
 </head>
 
 <body>
@@ -38,26 +38,37 @@
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Museum Entry Discount, with PHP</span>
+        <span class="mdl-layout-title">Triangle Classification, in PHP</span>
       </div>
     </header>
     <main class="mdl-layout__content">
       <div class="right-image">
-        <img src="./images/museum.png" alt="Image of the outside of a museum." />
+        <img src="./images/triangles.png" alt="Image of three different types of triangles: Scalene, Isosceles, and Equilateral" />
       </div>
       <div class=" page-content-php">
         <div id="user-info">
 
           <?php
           // input
-          $age  = intval($_GET["age"]);
-          $dayOfTheWeek = $_GET["day"];
+          $sideA  = intval($_GET["side-a"]);
+          $sideB  = intval($_GET["side-b"]);
+          $sideC  = intval($_GET["side-c"]);
 
+          //process
+          $angleA = acos(($sideB ** 2 + $sideC ** 2 - $sideA ** 2) / (2 * $sideB * $sideC)) * (180 / M_PI);
+          $angleB = acos(($sideC ** 2 + $sideA ** 2 - $sideB ** 2) / (2 * $sideC * $sideA)) * (180 / M_PI);
+          $angleC = acos(($sideA ** 2 + $sideB ** 2 - $sideC ** 2) / (2 * $sideA * $sideB)) * (180 / M_PI);
 
-          if ($dayOfTheWeek == "tuesday" || $dayOfTheWeek == "thursday" || ($age > 12 && $age < 21)) {
-            echo "<p>You are eligible for the discount.</p>";
+          $sumOfAngles = round($angleA, 2) + round($angleB, 2) + round($angleC, 2);
+
+          if ($sumOfAngles != 180) {
+            echo "<p>Oops, this is NOT a triangle.</p>";
+          } else if ($sideA == $sideB && $sideA == $sideC && $sideB == $sideC) {
+            echo "<p>This is an equilateral triangle.</p>";
+          } else if ($sideA == $sideB || $sideA == $sideC || $sideB == $sideC) {
+            echo "<p>This is an isosceles triangle.</p>";
           } else {
-            echo "<p>You are NOT eligible for the discount.</p>";
+            echo "<p>This is a scalene triangle.</p>";
           }
           ?>
 

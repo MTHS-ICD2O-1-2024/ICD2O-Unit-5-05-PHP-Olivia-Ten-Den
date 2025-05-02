@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="description" content="Museum Entry Discount, with PHP" />
+  <meta name="description" content="Triangle Classification, in PHP" />
   <meta name="keywords" content="mths, icd2o" />
   <meta name="author" content="Olivia TD" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +15,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
   <link rel="manifest" href="./site.webmanifest" />
-  <title>Museum Entry Discount, with PHP</title>
+  <title>Triangle Classification, in PHP</title>
 </head>
 
 <body>
@@ -24,59 +24,60 @@
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Museum Entry Discount, with PHP</span>
+        <span class="mdl-layout-title">Triangle Classification, in PHP</span>
       </div>
     </header>
     <main class="mdl-layout__content">
       <div class="right-image">
-        <img src="./images/museum.png" alt="Image of the outside of a museum." />
+        <img src="./images/triangles.png" alt="Image of three different types of triangles: Scalene, Isosceles, and Equilateral" />
       </div>
-      <div class="page-content">Please enter your age and the day of the week.</div>
+      <div class="page-content">Enter the three sides of a triangle.</div>
       <br />
       <form action="answer.php" method="GET">
-        <h6>Age:</h6>
+        <h6>Side A:</h6>
         <div class="mdl-textfield mdl-js-textfield">
           <!-- input pattern attribute -->
-          <input
-            class="mdl-textfield__input"
-            type="number"
-            min="0"
-            id="age"
-            name="age" />
+          <input class="mdl-textfield__input" type="number" min="1" id="side-a" />
           <!-- mdl-textfield__label -->
-          <label class="mdl-textfield__label" for="age">Enter your age here...
-          </label>
+          <label class="mdl-textfield__label" for="side-a">Enter side A length in cm...</label>
           <!-- class "mdl-textfield__error" -->
           <span class="mdl-textfield__error">Input is not a valid number.</span>
         </div>
         <br />
-        <div>
-          <label for="day">
-            <h6>Choose the day of the week:</h6>
-          </label>
-          <select name="day" id="day">
-            <option value="monday">Monday</option>
-            <option value="tuesday">Tuesday</option>
-            <option value="wednesday">Wednesday</option>
-            <option value="thursday">Thursday</option>
-            <option value="friday">Friday</option>
-            <option value="saturday">Saturday</option>
-            <option value="sunday">Sunday</option>
-          </select>
+        <h6>Side B:</h6>
+        <div class="mdl-textfield mdl-js-textfield">
+          <!-- input pattern attribute -->
+          <input class="mdl-textfield__input" type="number" min="1" id="side-b" />
+          <!-- mdl-textfield__label -->
+          <label class="mdl-textfield__label" for="side-b">Enter side A length in cm...</label>
+          <!-- class "mdl-textfield__error" -->
+          <span class="mdl-textfield__error">Input is not a valid number.</span>
         </div>
         <br />
-        <div>
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            type="check-button">
-            Check
-          </button>
+        <h6>Side C:</h6>
+        <div class="mdl-textfield mdl-js-textfield">
+          <!-- input pattern attribute -->
+          <input class="mdl-textfield__input" type="number" min="1" id="side-c" />
+          <!-- mdl-textfield__label -->
+          <label class="mdl-textfield__label" for="side-c">Enter side A length in cm...</label>
+          <!-- class "mdl-textfield__error" -->
+          <span class="mdl-textfield__error">Input is not a valid number.</span>
         </div>
-      </form>
-      <br />
-      <div class="page-content-answer">
-        <div id="result"></div>
-      </div>
-    </main>
+        <br />
+  </div>
+  <br />
+  <div>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+      type="check-button">
+      Classify
+    </button>
+  </div>
+  </form>
+  <br />
+  <div class="page-content-answer">
+    <div id="result"></div>
+  </div>
+  </main>
   </div>
 </body>
 
